@@ -9,15 +9,21 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: "SegoeUILight";
+  font-style: normal;
+  font-weight: normal;
+  src: url(assets/SegoeUILight.ttf);
+}
+
 * {
   margin: 0px;
   padding: 0px;
 }
 
 body {
-  /*background-color: dimgray;*/
   background-image: url(assets/background.png);
-  font-family: "wf_SegoeUILight", sans-serif;
+  font-family: "SegoeUILight", sans-serif;
   background-attachment: fixed;
 }
 
