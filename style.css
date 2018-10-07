@@ -1,0 +1,208 @@
+@font-face{
+    font-family: 'wf_SegoeUILight';
+    src:url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.eot');
+    src:url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.eot?#iefix') format('embedded-opentype'),
+           url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.woff') format('woff'),
+           url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.ttf') format('truetype'),
+           url('http://i.s-microsoft.com/fonts/Segoe-UI/Cyrillic/Light/latest.svg#web') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  /*background-color: dimgray;*/
+  background-image: url(assets/background.png);
+  font-family: wf_SegoeUILight;
+  background-attachment: fixed;
+}
+
+.mainBlock {
+  max-width: 1024px;
+  background-color: red;
+  position: relative;
+  margin: 10% auto;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.header {
+  position: inherit;
+  height: 330px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.avatar {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  margin-top: 105px;
+  margin-left: 65px;
+  display: block;
+  border-radius: 15px;
+}
+
+.headerCover {
+  position: absolute;
+  margin-top: 0px;
+  width: 1024px;
+  height: 230px;
+  background: linear-gradient(to top, rgba(255,255,255, 1), rgba(0,0,0,0)), url(assets/cover.jpg);;
+}
+
+.content {
+  position: inherit;
+  background-color: white;
+}
+
+h1 {
+  position: inherit;
+  padding-top: 10px;
+  padding-left: 135px;
+  font-size: 40px;
+}
+
+h2 {
+  position: inherit;
+  font-size: 25px;
+}
+
+p {
+  position: inherit;
+  padding: 0px 135px;
+  font-size: 20px;
+  font-family: wf_SegoeUILight, sans-serif;
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.aboutMeBox p {
+  padding: 0px 0px;
+  max-width: 347px;
+}
+
+h1.name {
+  position: absolute;
+  padding-top: 230px;
+  padding-left: 305px;
+  font-size: 45px;
+  color: black;
+}
+
+h2.speciality{
+  position: absolute;
+  padding-top: 280px;
+  padding-left: 305px;
+  font-size: 25px;
+  color: black;
+}
+
+.aboutMe {
+  position: inherit;
+  background-color: white;
+  float: none;
+  display: table;
+}
+
+.aboutMeBox {
+  position: inherit;
+  width: 407px;
+  float: left;
+  background-color: inherit;
+  color: black;
+}
+
+.aboutMe h1 {
+  color: black;
+}
+
+.aboutMeCover {
+  position: inherit;
+  margin: 0px 135px;
+  width: 1024px;
+}
+
+.summary {
+  position: inherit;
+  background-color: rgb(255, 204, 0);
+  overflow: hidden;
+}
+
+.codeExamples {
+  position: inherit;
+  background-color: rgb(41, 41, 41);
+  overflow: hidden;
+}
+
+.codeExamples h1, .codeExamples p {
+  color: white;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+
+details {
+  margin: 10px 135px;
+  background-color: dimgray;
+  border-radius: 15px;
+  /*transition: 0.5s;*/
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+details:hover {
+  background-color: white;
+  transition: 0.5s;
+}
+
+details summary {
+  padding: 30px 30px;
+  font-size: 30px;
+  color: white;
+  outline: none;
+  transition: 0.5s;
+}
+
+details summary:hover {
+  color: black;
+}
+
+iframe {
+  position: inherit;
+  margin: 10px;
+  width: 734px;
+  height: 1168px;
+  border: 0px;
+  border-radius: 15px;
+}
+
+iframe.jsIframe {
+  position: inherit;
+  height: 838px;
+}
+
+.contacts {
+  position: inherit;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+a {
+  color: white;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255, 204, 0);
+  font-family: inherit;
+}

@@ -1,0 +1,61 @@
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+</style>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);">function solveSudoku(matrix) {
+  let posVal = [1,2,3,4,5,6,7,8,9]; // possible values<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> array
+</span>  for(let lineCounter = 0; lineCounter &lt; 9; lineCounter++) {
+    for(let colCounter = 0; colCounter &lt; 9; colCounter++) {
+      if(matrix[lineCounter][colCounter] == 0) {
+        // line selection
+        posVal = posVal.filter((elem) =&gt; matrix[lineCounter].indexOf(elem) == -1);
+
+        // column selection
+        posVal = posVal.filter((elem) =&gt; {
+          let colVal = []; // column values<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> array
+</span>          for(let i = 0; i &lt; 9; i++) {
+            colVal.push(matrix[i][colCounter]);
+          }
+         <span class="hljs-built_in" style="color: rgb(224, 196, 108);"> return </span>colVal.indexOf(elem) == -1; // column<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> check
+</span>        });
+
+        // 3x3 selection
+        posVal = posVal.filter((elem) =&gt; {
+          function countCounter(counter) {
+            let value = 0;
+            if(counter &gt; 2) {
+              value = 3;
+              if(counter &gt; 5) value = 6;
+            }
+           <span class="hljs-built_in" style="color: rgb(224, 196, 108);"> return </span>value;
+          }
+        let line3x3Counter = countCounter(lineCounter);
+        let col3x3Counter = countCounter(colCounter);
+
+        let squareVal = []; // 3x3 values<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> array
+</span>        for(let i = line3x3Counter; i &lt; line3x3Counter + 3; i++) {
+          for(let j = col3x3Counter; j &lt; col3x3Counter + 3; j++) {
+            squareVal.push(matrix[i][j]);
+          }
+        }
+
+       <span class="hljs-built_in" style="color: rgb(224, 196, 108);"> return </span>squareVal.indexOf(elem) == -1;
+      });
+
+      // solving
+      //<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> if </span>possible values<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> array </span>is<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> not </span>empty
+      for(let i = 0; i &lt; posVal.length; i++) {
+        matrix[lineCounter][colCounter] = posVal[i];
+          if(solveSudoku(matrix))<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> return </span>matrix;
+        }
+        //if possible values<span class="hljs-built_in" style="color: rgb(224, 196, 108);"> array </span>is empty
+        matrix[lineCounter][colCounter] = 0;
+       <span class="hljs-built_in" style="color: rgb(224, 196, 108);"> return </span>false;
+      }
+    }
+  }
+  //if there are no any zeros in matrix
+ <span class="hljs-built_in" style="color: rgb(224, 196, 108);"> return </span>true;
+}</pre>
