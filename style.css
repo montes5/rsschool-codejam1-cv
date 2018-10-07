@@ -17,7 +17,7 @@
 body {
   /*background-color: dimgray;*/
   background-image: url(assets/background.png);
-  font-family: wf_SegoeUILight;
+  font-family: "wf_SegoeUILight", sans-serif;
   background-attachment: fixed;
 }
 
@@ -76,7 +76,6 @@ p {
   position: inherit;
   padding: 0px 135px;
   font-size: 20px;
-  font-family: wf_SegoeUILight, sans-serif;
   margin: 10px 0;
   text-align: justify;
 }
