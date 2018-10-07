@@ -1,0 +1,83 @@
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+</style>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">package</span> dblabclient;
+
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> java.awt.Color;
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> java.awt.Graphics2D;
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> java.awt.Image;
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> java.awt.RenderingHints;
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> java.awt.<span class="hljs-built_in" style="color: rgb(224, 196, 108);">image</span>.BufferedImage;
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> javax.swing.ImageIcon;
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> javax.swing.JButton;
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> javax.swing.SwingConstants;
+
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">public</span> class OvalButton extends JButton{
+    <span class="hljs-comment" style="color: rgb(127, 127, 127);">//=====ПЕРЕМЕННЫЕ===========================================================</span>
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">private</span> Color currentColor = Color.yellow;
+
+    <span class="hljs-comment" style="color: rgb(127, 127, 127);">//=====КОНСТРУКТОРЫ=========================================================</span>
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">public</span> OvalButton(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">String</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">text</span>) {
+        styleB();
+        setText(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">text</span>);
+    }
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">public</span> OvalButton() {
+        styleB();
+    }
+
+    <span class="hljs-comment" style="color: rgb(127, 127, 127);">//=====ВНУТРЕННИЕ МЕТОДЫ====================================================</span>
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">protected</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">void</span> styleB() {
+        setLayout(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">null</span>);
+        setBackground(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">null</span>);
+        setBorder(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">null</span>);
+        setHorizontalAlignment(SwingConstants.CENTER);
+        setHorizontalTextPosition(SwingConstants.CENTER);
+        setContentAreaFilled(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">false</span>);
+        setBounds(<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>, <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>, <span class="hljs-number" style="color: rgb(104, 150, 186);">100</span>, <span class="hljs-number" style="color: rgb(104, 150, 186);">50</span>);
+    }
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">protected</span> ImageIcon paintOvalICO(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, Color bColor) {
+        currentColor = bColor;
+
+        Image img = <span class="hljs-keyword" style="color: rgb(203, 120, 50);">new</span> BufferedImage(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, Color.BITMASK);
+        ImageIcon imgICO = <span class="hljs-keyword" style="color: rgb(203, 120, 50);">new</span> ImageIcon(img);
+        Graphics2D g = (Graphics2D) img.getGraphics();
+
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
+
+        g.setColor(bColor);
+        g.fillOval(<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>, <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>);
+        g.fillOval(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span> - <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>);
+        g.fillRect(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>/<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>, <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span> - <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>);
+
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> imgICO;
+    }
+
+    <span class="hljs-comment" style="color: rgb(127, 127, 127);">//=====ВНЕШНИЕ МЕТОДЫ=======================================================</span>
+
+    @Override
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">public</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">void</span> setBounds(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> xTop, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> yTop, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>) {
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">super</span>.setBounds(xTop, yTop, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>);
+        setColor(currentColor);
+    }
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">public</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">void</span> setColor(Color bColor) {
+        setIcon(paintOvalICO(getWidth(), getHeight(), bColor));
+    }
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">public</span> ImageIcon createOvalICO(JButton btn, Color bColor) {
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> paintOvalICO(btn.getWidth(), btn.getHeight(), bColor);
+    }
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">public</span> ImageIcon createOvalICO(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">int</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, Color bColor) {
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> paintOvalICO(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">width</span>, <span class="hljs-built_in" style="color: rgb(224, 196, 108);">height</span>, bColor);
+    }
+}</pre>
